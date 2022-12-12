@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Tp4.Models.Student>
+
+@{
+
+}
+@{
+    if (Model == null)
+    {
+
+        <div style="display: flex;justify-content:space-evenly; align-items:center;width:100% ">
+                    <h1>
+                  This course doesn't exist at all .
+                    </h1>
+
+        </div>
+    }
+    else
+    { <h2>
+        students with this course :
+        </h2>
+        <hr />
+        foreach (Student p in Model)
+        {
+            <div class="text-bg-secondary mb-3">
+                <div class="card-header">
+                    <h4>
+                       ID :
+                    </h4>
+                       @p.Id
+                </div>
+                <div class="card-body">
+                      <h6>
+                        First Name
+                      </h6>
+                      @p.firstName
+                     <h6>
+                      Last Name
+                     </h6>
+                     @p.lastName
+                     <h6>
+                     Phone Number
+                     </h6>
+                      @p.phoneNumber
+                     <h6>
+                     university
+                     </h6>
+                     @p.university
+                     <h6>
+                     timestamp
+                     </h6>
+                     @p.timestamp
+                     <h6>
+                     course
+                     </h6>
+                     @p.course
+                </div>
+            </div>
+
+        }
+    }
+    }
