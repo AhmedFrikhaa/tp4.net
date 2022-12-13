@@ -4,24 +4,26 @@ namespace Tp4.Data
 {
     public class StudentRepo
     {
-        private UniversityContext context=null;
+        private UniversityContext context;
         public StudentRepo() { }
 
         public StudentRepo(IConfiguration configuration) {
-        context = UniversityContext.Instantiate_UniversityContext(configuration);
+            context = UniversityContext.Instantiate_UniversityContext(configuration);
         }
         public IEnumerable <Student> getAllStudent() 
-        { 
-            return context.dbStudent.ToList();
+        {
+            Console.WriteLine(context.Student);
+
+            return context.Student.ToList();
         }
         public IEnumerable<Student> getCourse(string course){
-            return context.dbStudent.Where(s => s.course.Equals(course));
+            return context.Student.Where(s => s.course.Equals(course));
                    
         }
-       /* public IEnumerable<Student> getUniqueCourse()
+        public IEnumerable<String> getUniqueCourse()
         {
-            return context.dbStudent.Where(s => s.course.);
-        }*/
+            return context.Student.Select(s => s.course).Distinct();
+        }
         
     }
 }

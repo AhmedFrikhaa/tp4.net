@@ -14,7 +14,7 @@ namespace Tp4.Data
         {
             if (context==null) {
                 var optionsBuilder = new DbContextOptionsBuilder<UniversityContext>();
-                optionsBuilder.UseSqlite(configuration.GetConnectionString("sqlite"));
+                optionsBuilder.UseSqlite($"Filename={configuration.GetConnectionString("sqlite")}");
                 context= new UniversityContext(optionsBuilder.Options);
                 return context;
             }
@@ -22,7 +22,7 @@ namespace Tp4.Data
           
 
         }
-         public DbSet<Student> dbStudent {get; set; }
+         public DbSet<Student> Student {get; set; }
 
     }
 }
